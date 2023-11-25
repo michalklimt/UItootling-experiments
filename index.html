@@ -2,19 +2,20 @@
 <html>
 <head>
     <title>CSV Display</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
 </head>
 <body>
     <h1>CSV Data</h1>
     <div id="csv-data"></div>
 
     <script>
-        function displayCSV(data) {
+        function displayCSV(csv) {
+            var lines = csv.split("\n");
             var html = "<table border='1'>";
-            data.forEach(function(row) {
+            lines.forEach(function(line) {
+                var cells = line.split(",");
                 html += "<tr>";
-                row.forEach(function(cell) {
-                    html += "<td>" + cell + "</td>";
+                cells.forEach(function(cell) {
+                    html += "<td>" + cell.trim() + "</td>";
                 });
                 html += "</tr>";
             });
@@ -22,12 +23,18 @@
             document.getElementById('csv-data').innerHTML = html;
         }
 
-        Papa.parse("https://michalklimt.github.io/UItootling-experiments/Tooling-list.csv", {
-            download: true,
-            complete: function(results) {
-                displayCSV(results.data);
-            }
-        });
+        function loadCSV(url) {
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    displayCSV(xhr.responseText);
+                }
+            };
+            xhr.open("GET", url, true);
+            xhr.send();
+        }
+
+        loadCSV("https://michalklimt.github.io/UItootling-experiments/Tooling-list.csv");
     </script>
 </body>
 </html>
