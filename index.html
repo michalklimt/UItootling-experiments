@@ -1,73 +1,33 @@
-<!doctype html>
-<html lang="cz">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <title>Načítání CSV Souboru</title>
-  <style>
-    /* CSS pro stylování tabulky */
-    table {
-      border-collapse: collapse;
-      width: 100%;
-    }
-    th, td {
-      border: 1px solid black;
-      padding: 8px;
-      text-align: left;
-    }
-  </style>
+    <title>CSV Display</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
 </head>
 <body>
-  <h1>CSV Data Zobrazena v Tabulce</h1>
-  <div id="csvTable">Načítání dat...</div>
+    <h1>CSV Data</h1>
+    <div id="csv-data"></div>
 
-  <script>
-    // Funkce pro načtení a zobrazení CSV dat
-    function loadCsv(url) {
-      fetch(url)
-        .then(response => {
-          if (!response.ok) {
-            throw new Error('Network response was not ok: ' + response.statusText);
-          }
-          return response.text();
-        })
-        .then(csv => {
-          document.getElementById('csvTable').innerHTML = csvToTable(csv);
-        })
-        .catch(error => {
-          console.error('Chyba při načítání CSV souboru:', error);
-          document.getElementById('csvTable').innerHTML = 'Chyba při načítání dat. Podívejte se do konzole pro více informací.';
+    <script>
+        function displayCSV(data) {
+            var html = "<table border='1'>";
+            data.forEach(function(row) {
+                html += "<tr>";
+                row.forEach(function(cell) {
+                    html += "<td>" + cell + "</td>";
+                });
+                html += "</tr>";
+            });
+            html += "</table>";
+            document.getElementById('csv-data').innerHTML = html;
+        }
+
+        Papa.parse("https://michalklimt.github.io/UItootling-experiments/Tooling-list.csv", {
+            download: true,
+            complete: function(results) {
+                displayCSV(results.data);
+            }
         });
-    }
-
-    // Funkce pro převod CSV na HTML tabulku
-    function csvToTable(csv) {
-      const lines = csv.split('\n').filter(line => line.trim());
-      let result = '<table>';
-
-      // Přidání hlavičky tabulky
-      const headers = lines[0].split(',');
-      result += '<tr>';
-      headers.forEach(header => {
-        result += `<th>${header.trim()}</th>`;
-      });
-      result += '</tr>';
-
-      // Přidání dat
-      for (let i = 1; i < lines.length; i++) {
-        const cols = lines[i].split(',');
-        result += '<tr>';
-        cols.forEach(col => {
-          result += `<td>${col.trim()}</td>`;
-        });
-        result += '</tr>';
-      }
-
-      result += '</table>';
-      return result;
-    }
-
-    // Spuštění načítání CSV
-    loadCsv('https://michalklimt.github.io/UItootling-experiments/Tooling-list.csv'); // Nahraďte cestou k vašemu CSV souboru
-  </script>
+    </script>
 </body>
 </html>
