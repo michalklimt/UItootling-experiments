@@ -1,48 +1,81 @@
+/* ExterniCSSStyly.css */
 :root {
-    --table-font-family: sans-serif;
-    --table-font-size: 0.9em;
-    --table-box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-    --table-background-color: #009879;
-    --table-text-color: #ffffff;
-    --table-padding: 12px 15px;
-    --table-border-color: #dddddd;
-    --table-background-color-alt: #f3f3f3;
-    --table-border-color-highlight: #009879;
+    --background-color: #ffffff;
+    --primary-text-color: #333333;
+    --secondary-text-color: #666666;
+    --highlight-color: #f8ce0b;
+    --link-color: #007bff;
+    --link-hover-color: #0056b3;
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --heading-font-family: 'Georgia', serif;
+    --border-color: #dddddd;
+    --shadow-color: rgba(0, 0, 0, 0.15);
+    --section-padding: 40px;
+    --vertical-spacing: 20px;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    color: var(--primary-text-color);
+    line-height: 1.6;
+    padding: var(--section-padding);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--heading-font-family);
+    color: var(--highlight-color);
+    margin-bottom: var(--vertical-spacing);
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
-    margin: 25px 0;
-    font-size: var(--table-font-size);
-    font-family: var(--table-font-family);
-    min-width: 400px;
-    box-shadow: var(--table-box-shadow);
-}
-
-thead tr {
-    background-color: var(--table-background-color);
-    color: var(--table-text-color);
-    text-align: left;
+    margin-bottom: var(--vertical-spacing);
+    box-shadow: 0 0 10px var(--shadow-color);
 }
 
 th, td {
-    padding: var(--table-padding);
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
 }
 
-tbody tr {
-    border-bottom: 1px solid var(--table-border-color);
+th {
+    background-color: var(--highlight-color);
+    color: var(--background-color);
+    text-transform: uppercase;
 }
 
-tbody tr:nth-of-type(even) {
-    background-color: var(--table-background-color-alt);
+td {
+    color: var(--secondary-text-color);
 }
 
-tbody tr:last-of-type {
-    border-bottom: 2px solid var(--table-border-color-highlight);
+tr:nth-child(even) {
+    background-color: var(--background-color);
 }
 
-tbody tr.active-row {
-    font-weight: bold;
-    color: var(--table-border-color-highlight);
+tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+a {
+    color: var(--link-color);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: var(--link-hover-color);
+}
+
+/* Třídy pro specifické sekce a elementy, pokud jsou potřeba */
+.section-title {
+    margin-top: var(--section-padding);
+    margin-bottom: var(--section-padding);
+    font-size: 2em;
+}
+
+.tool-item {
+    margin-bottom: var(--vertical-spacing);
+    /* Další styly pro .tool-item pokud jsou potřeba */
 }
