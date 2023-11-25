@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="cz">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Načítání CSV Souboru</title>
+    <style>
+      /* Zde můžete přidat CSS pro stylování tabulky */
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      th,
+      td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: left;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>CSV Data Zobrazena v Tabulce</h1>
+    <div id="csvTable">Načítání dat...</div>
+
+    <script>
+      fetch("~/Tooling-list.csv")
+        .then((response) => response.text())
+        .then((data) => {
+          const tableHtml = csvToTable(data);
+          document.getElementById("csvTable").innerHTML = tableHtml;
+        })
+        .catch((error) =>
+          console.error("Chyba při načítání CSV souboru:", error),
+        );
+
+      function csvToTable(csv) {
+        const lines = csv.split("\n");
+        let result = "<table>";
+
+        // Přidání hlavičky tabulky
+        const headers = lines[0].split(",");
+        result += "<tr>";
+        headers.forEach((header) => {
+          result += `<th>${header.trim()}</th>`;
+        });
+        result += "</tr>";
+
+        // Přidání dat
+        lines.slice(1).forEach((line) => {
+          const cols = line.split(",");
+          result += "<tr>";
+          cols.forEach((col) => {
+            result += `<td>${col.trim()}</td>`;
+          });
+          result += "</tr>";
+        });
+
+        result += "</table>";
+        return result;
+      }
+    </script>
+  </body>
+</html>
