@@ -1,62 +1,73 @@
 <!doctype html>
 <html lang="cz">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Načítání CSV Souboru</title>
-    <style>
-      /* Zde můžete přidat CSS pro stylování tabulky */
-      table {
-        border-collapse: collapse;
-        width: 100%;
-      }
-      th,
-      td {
-        border: 1px solid black;
-        padding: 8px;
-        text-align: left;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>CSV Data Zobrazena v Tabulce</h1>
-    <div id="csvTable">Načítání dat...</div>
+<head>
+  <meta charset="UTF-8" />
+  <title>Načítání CSV Souboru</title>
+  <style>
+    /* CSS pro stylování tabulky */
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <h1>CSV Data Zobrazena v Tabulce</h1>
+  <div id="csvTable">Načítání dat...</div>
 
-    <script>
-      fetch("/Tooling-list.csv")
-        .then((response) => response.text())
-        .then((data) => {
-          const tableHtml = csvToTable(data);
-          document.getElementById("csvTable").innerHTML = tableHtml;
+  <script>
+    // Funkce pro načtení a zobrazení CSV dat
+    function loadCsv(url) {
+      fetch(url)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok: ' + response.statusText);
+          }
+          return response.text();
         })
-        .catch((error) =>
-          console.error("Chyba při načítání CSV souboru:", error),
-        );
-
-      function csvToTable(csv) {
-        const lines = csv.split("\n");
-        let result = "<table>";
-
-        // Přidání hlavičky tabulky
-        const headers = lines[0].split(",");
-        result += "<tr>";
-        headers.forEach((header) => {
-          result += `<th>${header.trim()}</th>`;
+        .then(csv => {
+          document.getElementById('csvTable').innerHTML = csvToTable(csv);
+        })
+        .catch(error => {
+          console.error('Chyba při načítání CSV souboru:', error);
+          document.getElementById('csvTable').innerHTML = 'Chyba při načítání dat. Podívejte se do konzole pro více informací.';
         });
-        result += "</tr>";
+    }
 
-        // Přidání dat
-        lines.slice(1).forEach((line) => {
-          const cols = line.split(",");
-          result += "<tr>";
-          cols.forEach((col) => {
-            result += `<td>${col.trim()}</td>`;
-          });
-          result += "</tr>";
+    // Funkce pro převod CSV na HTML tabulku
+    function csvToTable(csv) {
+      const lines = csv.split('\n').filter(line => line.trim());
+      let result = '<table>';
+
+      // Přidání hlavičky tabulky
+      const headers = lines[0].split(',');
+      result += '<tr>';
+      headers.forEach(header => {
+        result += `<th>${header.trim()}</th>`;
+      });
+      result += '</tr>';
+
+      // Přidání dat
+      for (let i = 1; i < lines.length; i++) {
+        const cols = lines[i].split(',');
+        result += '<tr>';
+        cols.forEach(col => {
+          result += `<td>${col.trim()}</td>`;
         });
-
-        result += "</table>";
-        return result;
+        result += '</tr>';
       }
-    </script>
-  </body>
+
+      result += '</table>';
+      return result;
+    }
+
+    // Spuštění načítání CSV
+    loadCsv('/Tooling-list.csv'); // Nahraďte cestou k vašemu CSV souboru
+  </script>
+</body>
 </html>
