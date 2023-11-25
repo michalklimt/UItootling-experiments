@@ -22,7 +22,7 @@
     <div id="csvTable">Načítání dat...</div>
 
     <script>
-      fetch("~/Tooling-list.csv")
+      fetch("/Tooling-list.csv")
         .then((response) => response.text())
         .then((data) => {
           const tableHtml = csvToTable(data);
