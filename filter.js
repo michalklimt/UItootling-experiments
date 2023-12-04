@@ -2,7 +2,7 @@
 var csvArray = [];
 var categoryIndex = -1;
 var categories = new Set();
-var selectedCategory = null; // Přidáno pro sledování vybrané kategorie
+var selectedCategory = null; // For tracking the selected category
 
 function loadCSV() {
     var xhr = new XMLHttpRequest();
@@ -13,7 +13,7 @@ function loadCSV() {
     };
     xhr.open(
         "GET",
-        "https://michalklimt.github.io/UItootling-experiments/Tooling-list.csv",
+        "Tooling-list.csv", // Make sure the path is correct
         true,
     );
     xhr.send();
@@ -53,7 +53,7 @@ function displayTags() {
     categories.forEach((category) => {
         var tagButton = document.createElement("button");
         tagButton.textContent = category;
-        tagButton.classList.add('category-button'); // Přidána třída pro stylování
+        tagButton.classList.add('category-button');
         tagButton.onclick = function () {
             selectCategory(category);
             filterCategory(category);
@@ -63,9 +63,7 @@ function displayTags() {
 }
 
 function selectCategory(category) {
-    // Aktualizace vybrané kategorie
     selectedCategory = category;
-    // Aktualizace třídy pro všechna tlačítka
     document.querySelectorAll('.category-button').forEach(button => {
         if (button.textContent === category) {
             button.classList.add('selected');
@@ -82,7 +80,7 @@ function filterCategory(category) {
         );
         displayCSV(filteredData);
     } else {
-        displayCSV(csvArray); // Zobrazit vše, pokud není vybrána kategorie
+        displayCSV(csvArray); // Show all if no category is selected
     }
 }
 
