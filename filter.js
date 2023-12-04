@@ -13,7 +13,7 @@ function loadCSV() {
     };
     xhr.open(
         "GET",
-        "Tooling-list.csv", // Make sure the path is correct
+        "https://michalklimt.github.io/UItootling-experiments/Tooling-list.csv", // Make sure the path is correct
         true,
     );
     xhr.send();
