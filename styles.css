@@ -6,12 +6,14 @@
   /* Barvy */
   --primary-color: #5c6ac4;
   --secondary-color: #006fbb;
+  --selected-color: #f4b400;
   --accent-color: #f4b400;
   --background-color: #ffffff;
   --text-color-primary: #333333;
   --text-color-secondary: #ffffff;
   --text-color-muted: #656565;
   --border-color: #e6e6e6;
+
 
   /* Typografie */
   --font-family: "Inter", sans-serif;
@@ -88,10 +90,14 @@ button:hover {
   background-color: var(--secondary-color);
 }
 
-/* Přidání dalších specifických stylů podle potřeby... */
+button.category-button {
+    /* Styly pro tlačítka kategorií */
+    margin: 5px;
+    transition: background-color 0.3s, color 0.3s; /* Přidaný přechod pro plynulé změny */
+}
 
-/* Styl pro vybrané tlačítko */
-.selected {
-    background-color: #f4b400; /* Příklad barvy pozadí */
-    color: white; /* Příklad barvy textu */
+button.category-button.selected {
+    /* Styly pro vybrané tlačítko */
+    background-color: var(--selected-color); /* Barva pozadí pro vybrané tlačítko */
+    color: white; /* Barva textu pro vybrané tlačítko */
 }
