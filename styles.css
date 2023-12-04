@@ -1,66 +1,39 @@
-/* Importing the 'Inter' font from Google Fonts */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap");
-
-:root {
-  /* Colors */
-  --primary-color: #5c6ac4;
-  --secondary-color: #006fbb;
-  --selected-color: #f4b400;
-  --accent-color: #f4b400;
-  --background-color: #ffffff;
-  --text-color-primary: #333333;
-  --text-color-secondary: #ffffff;
-  --text-color-muted: #656565;
-  --border-color: #e6e6e6;
-
-  /* Typography */
-  --font-family: "Inter", sans-serif;
-  --font-size-normal: 16px;
-  --font-size-large: 24px;
-}
-
 body {
-  font-family: var(--font-family);
-  font-size: var(--font-size-normal);
-  color: var(--text-color-primary);
-  background-color: var(--background-color);
-}
-
-h1 {
-  font-size: var(--font-size-large);
-  color: var(--primary-color);
+    font-family: Arial, sans-serif;
 }
 
 table {
-  border-collapse: collapse;
-  width: 100%;
-}
-
-table, th, td {
-  border: 1px solid var(--border-color);
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
 }
 
 th, td {
-  padding: 8px;
-  text-align: left;
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
 }
 
-.category-button {
-  background-color: var(--secondary-color);
-  color: var(--text-color-secondary);
-  border: none;
-  padding: 10px 15px;
-  margin: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
+th {
+    background-color: #4CAF50;
+    color: white;
 }
 
-.category-button:hover {
-  background-color: var(--primary-color);
+button {
+    background-color: #f2f2f2;
+    color: black;
+    padding: 10px 20px;
+    margin: 10px 5px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #ddd;
 }
 
 .selected {
-  background-color: var(--selected-color);
-  color: var(--text-color-secondary);
-  border: 1px solid var(--accent-color);
+    background-color: #4CAF50;
+    color: white;
 }
