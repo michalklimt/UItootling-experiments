@@ -89,3 +89,9 @@ button:hover {
 }
 
 /* Přidání dalších specifických stylů podle potřeby... */
+
+/* Styl pro vybrané tlačítko */
+.selected {
+    background-color: #f4b400; /* Příklad barvy pozadí */
+    color: white; /* Příklad barvy textu */
+}
