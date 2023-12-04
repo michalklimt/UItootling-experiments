@@ -72,3 +72,14 @@ function filterCategory(category) {
 }
 
 window.onload = loadCSV;
+
+// Předpokládá se, že tlačítka jsou vygenerována a mají třídu 'category-button'
+function selectCategory(category) {
+    // Odstranění třídy 'selected' ze všech tlačítek
+    document.querySelectorAll('.category-button').forEach(button => {
+        button.classList.remove('selected');
+    });
+
+    // Přidání třídy 'selected' kliknutému tlačítku
+    document.querySelector(`#${category}`).classList.add('selected');
+}
