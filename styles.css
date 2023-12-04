@@ -1,12 +1,11 @@
-/* Připojení písma 'Inter' z Google Fonts */
+/* Importing the 'Inter' font from Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap");
 
-
 :root {
-  /* Barvy */
+  /* Colors */
   --primary-color: #5c6ac4;
   --secondary-color: #006fbb;
-  --selected-color: #111111;
+  --selected-color: #f4b400;
   --accent-color: #f4b400;
   --background-color: #ffffff;
   --text-color-primary: #333333;
@@ -14,25 +13,10 @@
   --text-color-muted: #656565;
   --border-color: #e6e6e6;
 
-
-  /* Typografie */
+  /* Typography */
   --font-family: "Inter", sans-serif;
   --font-size-normal: 16px;
   --font-size-large: 24px;
-  --font-size-small: 14px;
-  --font-weight-normal: 400;
-  --font-weight-bold: 600;
-
-  /* Odstupy */
-  --space-1: 8px;
-  --space-2: 16px;
-  --space-3: 24px;
-  --space-4: 32px;
-  --space-5: 40px;
-
-  /* Ostatní */
-  --border-radius: 4px;
-  --box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
 body {
@@ -40,8 +24,6 @@ body {
   font-size: var(--font-size-normal);
   color: var(--text-color-primary);
   background-color: var(--background-color);
-  margin: 0;
-  padding: var(--space-3);
 }
 
 h1 {
@@ -49,55 +31,36 @@ h1 {
   color: var(--primary-color);
 }
 
-h2 {
-  font-size: var(--font-size-normal);
-  color: var(--secondary-color);
+table {
+  border-collapse: collapse;
+  width: 100%;
 }
 
-p,
-a,
-li,
-button {
-  /* Pro základní elementy */
-  font-size: var(--font-size-normal);
-  font-weight: var(--font-weight-normal);
-  color: var(--text-color-primary);
-  padding: 4px;
+table, th, td {
+  border: 1px solid var(--border-color);
 }
 
-a {
-  text-decoration: none;
-  color: var(--accent-color);
-  font-weight: var(--font-weight-bold);
+th, td {
+  padding: 8px;
+  text-align: left;
 }
 
-a:hover {
-  text-decoration: underline;
-}
-
-button {
-  background-color: var(--primary-color);
-  color: var(--text-color-secondary);
-  padding: var(--space-1) var(--space-2);
-  border: none;
-  border-radius: var(--border-radius);
-  cursor: pointer;
-  font-weight: var(--font-weight-bold);
-  box-shadow: var(--box-shadow);
-}
-
-button:hover {
+.category-button {
   background-color: var(--secondary-color);
+  color: var(--text-color-secondary);
+  border: none;
+  padding: 10px 15px;
+  margin: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-button.category-button {
-    /* Styly pro tlačítka kategorií */
-    margin: 5px;
-    transition: background-color 0.3s, color 0.3s; /* Přidaný přechod pro plynulé změny */
+.category-button:hover {
+  background-color: var(--primary-color);
 }
 
-button.category-button.selected {
-    /* Styly pro vybrané tlačítko */
-    background-color: var(--selected-color); /* Barva pozadí pro vybrané tlačítko */
-    color: white; /* Barva textu pro vybrané tlačítko */
+.selected {
+  background-color: var(--selected-color);
+  color: var(--text-color-secondary);
+  border: 1px solid var(--accent-color);
 }
