@@ -1,81 +1,90 @@
-/* ExterniCSSStyly.css */
+/* Připojení písma 'Inter' z Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap");
+
 :root {
-    --background-color: #ffffff;
-    --primary-text-color: #333333;
-    --secondary-text-color: #666666;
-    --highlight-color: #f8ce0b;
-    --link-color: #007bff;
-    --link-hover-color: #0056b3;
-    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    --heading-font-family: 'Georgia', serif;
-    --border-color: #dddddd;
-    --shadow-color: rgba(0, 0, 0, 0.15);
-    --section-padding: 40px;
-    --vertical-spacing: 20px;
+  /* Barvy */
+  --primary-color: #5c6ac4;
+  --secondary-color: #006fbb;
+  --accent-color: #f4b400;
+  --background-color: #ffffff;
+  --text-color-primary: #333333;
+  --text-color-secondary: #ffffff;
+  --text-color-muted: #656565;
+  --border-color: #e6e6e6;
+
+  /* Typografie */
+  --font-family: "Inter", sans-serif;
+  --font-size-normal: 16px;
+  --font-size-large: 24px;
+  --font-size-small: 14px;
+  --font-weight-normal: 400;
+  --font-weight-bold: 600;
+
+  /* Odstupy */
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 40px;
+
+  /* Ostatní */
+  --border-radius: 4px;
+  --box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
 body {
-    font-family: var(--font-family);
-    background-color: var(--background-color);
-    color: var(--primary-text-color);
-    line-height: 1.6;
-    padding: var(--section-padding);
+  font-family: var(--font-family);
+  font-size: var(--font-size-normal);
+  color: var(--text-color-primary);
+  background-color: var(--background-color);
+  margin: 0;
+  padding: var(--space-3);
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: var(--heading-font-family);
-    color: var(--highlight-color);
-    margin-bottom: var(--vertical-spacing);
+h1 {
+  font-size: var(--font-size-large);
+  color: var(--primary-color);
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: var(--vertical-spacing);
-    box-shadow: 0 0 10px var(--shadow-color);
+h2 {
+  font-size: var(--font-size-normal);
+  color: var(--secondary-color);
 }
 
-th, td {
-    padding: 12px 15px;
-    border: 1px solid var(--border-color);
-}
-
-th {
-    background-color: var(--highlight-color);
-    color: var(--background-color);
-    text-transform: uppercase;
-}
-
-td {
-    color: var(--secondary-text-color);
-}
-
-tr:nth-child(even) {
-    background-color: var(--background-color);
-}
-
-tr:nth-child(odd) {
-    background-color: #f9f9f9;
+p,
+a,
+li,
+button {
+  /* Pro základní elementy */
+  font-size: var(--font-size-normal);
+  font-weight: var(--font-weight-normal);
+  color: var(--text-color-primary);
+  padding: 4px;
 }
 
 a {
-    color: var(--link-color);
-    text-decoration: none;
-    transition: color 0.3s;
+  text-decoration: none;
+  color: var(--accent-color);
+  font-weight: var(--font-weight-bold);
 }
 
 a:hover {
-    color: var(--link-hover-color);
+  text-decoration: underline;
 }
 
-/* Třídy pro specifické sekce a elementy, pokud jsou potřeba */
-.section-title {
-    margin-top: var(--section-padding);
-    margin-bottom: var(--section-padding);
-    font-size: 2em;
+button {
+  background-color: var(--primary-color);
+  color: var(--text-color-secondary);
+  padding: var(--space-1) var(--space-2);
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-weight: var(--font-weight-bold);
+  box-shadow: var(--box-shadow);
 }
 
-.tool-item {
-    margin-bottom: var(--vertical-spacing);
-    /* Další styly pro .tool-item pokud jsou potřeba */
+button:hover {
+  background-color: var(--secondary-color);
 }
+
+/* Přidání dalších specifických stylů podle potřeby... */
