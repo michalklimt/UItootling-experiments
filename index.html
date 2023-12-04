@@ -1,41 +1,14 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
+  <head>
     <title>CSV Display</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+  </head>
+  <body>
     <h1>CSV Data</h1>
+    <!-- Místo pro filtrovací tlačítka -->
+    <div id="tags-container"></div>
     <div id="csv-data"></div>
-
-    <script>
-        function displayCSV(csv) {
-            var lines = csv.split("\n");
-            var html = "<table border='1'>";
-            lines.forEach(function(line) {
-                var cells = line.split(",");
-                html += "<tr>";
-                cells.forEach(function(cell) {
-                    html += "<td>" + cell.trim() + "</td>";
-                });
-                html += "</tr>";
-            });
-            html += "</table>";
-            document.getElementById('csv-data').innerHTML = html;
-        }
-
-        function loadCSV(url) {
-            var xhr = new XMLHttpRequest();
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    displayCSV(xhr.responseText);
-                }
-            };
-            xhr.open("GET", url, true);
-            xhr.send();
-        }
-
-        loadCSV("https://michalklimt.github.io/UItootling-experiments/Tooling-list.csv");
-    </script>
-</body>
+    <script src="filter.js"></script>
+  </body>
 </html>
