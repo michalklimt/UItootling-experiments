@@ -1,4 +1,41 @@
+/* Tohle schovává mobilní button a asi to musí být nahoře*/
+.filter-button {
+  display: none;
+}
 
+/* Co zobrazit na mobilu*/
+@media (max-width: 760px) {
+  #sidebar {
+      display: none;
+  }
+
+  .filter-button {
+    display: block;
+    width: 100%;
+    height: 56px;
+}
+}
+
+/* Button */
+.button {
+  background-color: #cacaca; /* Light grey background, adjust as needed */
+  color: #333; /* Dark text for contrast */
+  padding: 10px 20px; /* Adequate padding for touch targets */
+  border: none; /* No border, or adjust as per your card style */
+  border-radius: 5px; /* Rounded corners, match with your card's border-radius */
+  font-size: 1em; /* Match your card's font size */
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+  font-weight: bold;
+}
+
+.button:hover {
+    background-color: #adadad; /* Slightly darker on hover, adjust as needed */
+}
+
+
+/* Body */
       body {
         display: flex;
         height: 100vh;
@@ -8,7 +45,7 @@
         overflow: hidden; /* Zabrání scrollování celého těla */
       }
 
-      /* Styly pro sidebar */
+/* Sidebar */
       #sidebar {
         flex: 0 0 280px; /* Flexbox nastavení */
         height: 100vh;
@@ -33,7 +70,26 @@
         cursor: pointer;
       }
 
-      /* Styly pro hlavní obsah */
+/*Generated Checkboxes*/
+#generated-filters input[type="checkbox"] {
+  width: 16px; /* Zvětšení šířky checkboxu */
+  height: 16px; /* Zvětšení výšky checkboxu */
+  margin: 4px;
+  cursor: pointer; /* Zlepšení uživatelského prožitku při najetí myší */
+}
+
+#generated-filters label {
+  cursor: pointer;
+  margin-left: 4px;
+}
+
+#generated-filters input[type="checkbox"]:checked {
+  font-weight: bold;
+}
+
+
+
+/* Card Container */
       #card-container {
         flex: 1; /* Zabere zbývající prostor */
         overflow-y: auto; /* Povolení scrollování */
@@ -41,6 +97,7 @@
         padding-left: 5%;
       }
 
+/* Card */
       .card {
         max-width: 720px; /* Upraveno pro šířku kontejneru */
         padding: 20px;
@@ -73,9 +130,45 @@
         color: #333;
       }
 
+/* Counter */
       #counter {
         padding: 10px;
         padding-left: 5%; /* Zarovnání s kartičkami */
         font-size: 16px;
         color: #666;
       }
+
+/* Modal */
+      .modal {
+        position: fixed;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: calc(100% - 64px);
+        background-color: white;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+    }
+    
+    .modal-content {
+        padding: 20px;
+        /* Additional styling */
+    }
+    
+    .close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        cursor: pointer;
+    }
+    
+    /* Style for the semi-transparent overlay */
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.4);
+        display: none;
+    }
