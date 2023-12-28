@@ -1,39 +1,81 @@
-body {
-    font-family: Arial, sans-serif;
-}
 
-table {
-    border-collapse: collapse;
-    width: 100%;
-    margin-top: 20px;
-}
+      body {
+        display: flex;
+        height: 100vh;
+        margin: 0;
+        background-color: #f7f7f7;
+        font-family: Arial, sans-serif;
+        overflow: hidden; /* Zabrání scrollování celého těla */
+      }
 
-th, td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-}
+      /* Styly pro sidebar */
+      #sidebar {
+        flex: 0 0 280px; /* Flexbox nastavení */
+        height: 100vh;
+        overflow-y: auto; /* Povolení scrollování */
+        padding: 20px;
+        box-sizing: border-box; /* Zajistí, aby padding neovlivnil šířku */
+      }
 
-th {
-    background-color: #4CAF50;
-    color: white;
-}
+      #sidebar div {
+        margin-bottom: 12px; /* Zvětšení mezery mezi checkboxy */
+      }
 
-button {
-    background-color: #f2f2f2;
-    color: black;
-    padding: 10px 20px;
-    margin: 10px 5px;
-    border: 1px solid #ddd;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
+      #sidebar input[type="checkbox"] {
+        width: 16px; /* Zvětšení šířky checkboxu */
+        height: 16px; /* Zvětšení výšky checkboxu */
+        cursor: pointer; /* Zlepšení uživatelského prožitku při najetí myší */
+      }
 
-button:hover {
-    background-color: #ddd;
-}
+      #sidebar label {
+        vertical-align: middle; /* Zarovnání textu na střed výšky checkboxu */
+        padding-bottom: 2px;
+        cursor: pointer;
+      }
 
-.selected {
-    background-color: #4CAF50;
-    color: white;
-}
+      /* Styly pro hlavní obsah */
+      #card-container {
+        flex: 1; /* Zabere zbývající prostor */
+        overflow-y: auto; /* Povolení scrollování */
+        padding: 10px;
+        padding-left: 5%;
+      }
+
+      .card {
+        max-width: 720px; /* Upraveno pro šířku kontejneru */
+        padding: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+        border-radius: 8px;
+        text-align: left;
+        margin: 10px 0;
+        cursor: pointer;
+      }
+
+      .card h1 {
+        margin: 0;
+        font-size: 24px;
+        color: #333;
+      }
+
+      .card p {
+        font-size: 16px;
+        color: #666;
+      }
+
+      .card .label {
+        display: inline-block;
+        margin: 10px 5px;
+        padding: 5px 10px;
+        background-color: #eee;
+        border-radius: 4px;
+        font-size: 14px;
+        color: #333;
+      }
+
+      #counter {
+        padding: 10px;
+        padding-left: 5%; /* Zarovnání s kartičkami */
+        font-size: 16px;
+        color: #666;
+      }
