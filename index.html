@@ -1,14 +1,126 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <title>CSV Display</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="styles.css" />
+    <title>Dynamic Component Gallery</title>
   </head>
-  <body>
-    <h1>CSV Data</h1>
-    <!-- Místo pro filtrovací tlačítka -->
-    <div id="tags-container"></div>
-    <div id="csv-data"></div>
-    <script src="filter.js"></script>
+<body>
+    <div id="sidebar">
+      
+      <!-- výpis filtrů --> 
+      <div>
+        <input 
+        type="checkbox" 
+        id="Research" 
+        name="Research" 
+        />
+        <label for="Research" >Research</label>
+      </div>
+
+      <div>
+        <input 
+        type="checkbox" 
+        id="Prototyping" 
+        name="Prototyping" 
+        />
+        <label for="Prototyping">Prototyping</label>
+      </div>
+
+      <div>
+        <input 
+        type="checkbox" 
+        id="Styles" 
+        name="Styles" 
+        />
+        <label for="Styles">Styles</label>
+      </div>
+
+      <div>
+        <input 
+        type="checkbox" 
+        id="Accessibility" 
+        name="Accessibility" 
+        />
+        <label for="Accessibility">Accessibility</label>
+      </div>
+      <div>
+        <input
+        type="checkbox"
+        id="Component-Libraries"
+        name="ComponentLibraries"
+        /><label for="Component-Libraries">Component Libraries</label>
+      </div>
+
+      <div>
+        <input 
+        type="checkbox" 
+        id="Icon-Libraries" 
+        name="IconLibraries"
+        />
+        <label for="Icon-Libraries">Icon Libraries</label>
+      </div>
+
+      <div>
+        <input 
+        type="checkbox"
+        id="Graphic-Assets" 
+        name="GraphicAssets" 
+        />
+        <label for="Graphic-Assets">Graphic Assets</label>
+      </div>
+
+      <div>
+        <input
+        type="checkbox"
+        id="Design-System-Platform"
+        name="DesignSystemPlatform"
+        />
+        <label for="Design-System-Platform"> Design System Platform</label>
+      </div>
+
+      <div>
+        <input
+        type="checkbox"
+        id="Documentation"
+        name="Documentation" 
+        />
+        <label for="Documentation">Documentation</label>
+      </div>
+
+      <div>
+        <input 
+        type="checkbox" 
+        id="HandOff" 
+        name="HandOff"
+        />
+        <label for="HandOff">Hand Off</label>
+      </div>
+
+      <div>
+        <input
+         type="checkbox"
+         id="Website-Builder"
+         name="WebsiteBuilder"
+        />
+        <label for="Website-Builder">Website Builder</label>
+      </div>
+
+      <div>
+        <input 
+        type="checkbox"
+        id="Copywriting"
+        name="Copywriting"
+        />
+        <label for="Copywriting">Copywriting</label>
+      </div>
+    </div>
+
+    <div id="card-container">
+      <div id="counter">nalezeno 0 nástrojů</div>
+      <!-- Zde se vytvoří kartičky -->
+    </div>
+
   </body>
 </html>
