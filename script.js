@@ -38,8 +38,8 @@
 
       function filterCards() {
         let selectedCategories = Array.from(
-          document.querySelectorAll('#sidebar input[type="checkbox"]:checked')
-        ).map((checkbox) => checkbox.id);
+          document.querySelectorAll('#sidebar input[type="checkbox"]:checked, #generated-filters input[type="checkbox"]:checked')
+        ).map((checkbox) => checkbox.id.replace('-modal', '')); // Remove '-modal' from the ID
 
         document.querySelectorAll(".card").forEach((card) => {
           if (
@@ -64,3 +64,59 @@
           "counter"
         ).textContent = `nalezeno ${displayedCards} ${counterText}`;
       }
+
+
+
+// Tohle otevírá mobilní modál
+      document.querySelector('.filter-button').addEventListener('click', function() {
+        document.querySelector('.modal').style.transform = 'translateX(0)';
+        document.querySelector('.overlay').style.display = 'block';
+    });
+    
+document.querySelectorAll('.modal .close, .modal #show-results, .overlay').forEach(element => {
+  element.addEventListener('click', function() {
+      document.querySelector('.modal').style.transform = 'translateX(100%)';
+      document.querySelector('.overlay').style.display = 'none';
+    });      
+    });
+
+
+
+// Tohle vypisuje filtry do mobilního modálu
+function populateModalWithFilters() {
+  var filtersContainer = document.querySelector('#sidebar');
+  var generatedFiltersContainer = document.querySelector('#generated-filters');
+
+  filtersContainer.querySelectorAll('input[type="checkbox"]').forEach(function(checkbox, index) {
+      var clone = checkbox.cloneNode(true);
+      var label = document.createElement('label');
+
+      // Generate a unique ID for each checkbox
+      var newId = checkbox.id + '-modal';
+      clone.id = newId;
+      label.setAttribute('for', newId); // Link label to the cloned checkbox
+
+      label.innerHTML = checkbox.nextElementSibling.innerHTML; // Assumes label follows checkbox
+
+      // Clone the class attribute if it exists
+      if (checkbox.className) {
+          clone.className = checkbox.className;
+      }
+
+      // Clone class of the label if it exists
+      if (checkbox.nextElementSibling.className) {
+          label.className = checkbox.nextElementSibling.className;
+      }
+
+      clone.addEventListener("change", filterCards);
+
+      generatedFiltersContainer.appendChild(clone);
+      generatedFiltersContainer.appendChild(label);
+      generatedFiltersContainer.appendChild(document.createElement('br'));
+  });
+}
+
+populateModalWithFilters();
+
+
+    
