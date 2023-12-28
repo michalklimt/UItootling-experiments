@@ -116,11 +116,26 @@
         <label for="Copywriting">Copywriting</label>
       </div>
     </div>
+      
+    <!-- Modál s filtry -->
+    <div class="overlay" style="display: none;"></div>
+    <div id="modal" class="modal">
+      <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>Filters</h2>
+          <div id="generated-filters"></div>
+          <button class="button" id="show-results">Show results</button>
+      </div>
+  </div>
+
 
     <div id="card-container">
+      <button class="button filter-button">Filters</button>
+      <!-- Rest of your card-container content -->
       <div id="counter">nalezeno 0 nástrojů</div>
       <!-- Zde se vytvoří kartičky -->
     </div>
+  
 
     <script src="script.js"></script>
   </body>
