@@ -1,7 +1,7 @@
 // script.js
       document.addEventListener("DOMContentLoaded", () => {
         fetch(
-          "https://michalklimt.github.io/UItootling-experiments/Tooling-list.csv"
+          "https://michalklimt.github.io/UItootling-experiments/Tooling-list-1.csv"
         )
           .then((response) => response.text())
           .then((data) => {
