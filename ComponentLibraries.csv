@@ -1,0 +1,12 @@
+﻿Name,Category,Subcategory,Pricing,Direct Link,Description,Technologies
+Chakra,Design-Systems,Component-Libraries,Freemium,https://chakra-ui.com, Design system framework with free component libraries for React and Figma,"Figma,React"
+Material UI,Design-Systems,Component-Libraries,Freemium,https://mui.com,Large open source framework with free React librar and paid library for Figma,"Figma,React"
+Bulma,Design-Systems,Component-Libraries,Free,https://bulma.io,Figma library created for the Bulma CSS framework,"Figma,React"
+Flowbite,Design-Systems,Component-Libraries,Freemium,https://flowbite.com,"Large component library based on Tailwind that supports a number of technologies such as React, Vue, Angular... with design asssets in Figma","Figma,React,Other"
+Apple Design Resources – iOS 17 and iPadOS 17,Design-Systems,Component-Libraries,Free,https://www.figma.com/community/file/1121065701252736567/iOS-16-UI-Kit-for-Figma,Official comprehensive Figma UI library for iOS 17 and iPadOS 17,Figma
+Cherry,Design-Systems,Component-Libraries,Free,https://cherry.design,Design system focused on WordPress with free Figma Assets,"Figma,React,Other"
+Material design UI Kit,Design-Systems,Component-Libraries,Free,https://m3.material.io,Material design documentation including the official Figma library,"Figma,Other"
+Bootstrap 5 UI KIT,Design-Systems,Component-Libraries,Free,https://www.figma.com/community/file/876022745968684318/Bootstrap-UI-Kit,High quality Figma library for Bootstrap,Figma
+Android UI Kit,Design-Systems,Component-Libraries,Free,https://www.figma.com/community/file/1237551184114564748,The official UI library for Android apps from Material Design,Figma
+Untitled UI,Design-Systems,Component-Libraries,Freemium,https://www.untitledui.com/pricing,Large UI kit for Figma,Figma
+Next UI,Design-Systems,Component-Libraries,Free,https://nextui.org,Visually impressive UI library for Next with Figma documents,"Figma,Other"
